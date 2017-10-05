@@ -22,7 +22,7 @@ public class FileEventLogger implements EventLogger {
         this.file = new File(fileName);
         if (!file.canWrite()) {
             throw new IOException("Can't write here: " + fileName);
-        } ;
+        }
     }
 
     @Override

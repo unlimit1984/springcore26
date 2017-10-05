@@ -2,6 +2,7 @@ package ua.epam.spring.core.loggers;
 
 import ua.epam.spring.core.Event;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ public class CacheFileEventLogger extends FileEventLogger {
 
     public CacheFileEventLogger(String fileName, Integer cacheSize) {
         super(fileName);
+        cache = new ArrayList<>();
         this.cacheSize = cacheSize;
     }
 

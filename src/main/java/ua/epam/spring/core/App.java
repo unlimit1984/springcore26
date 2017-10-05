@@ -1,5 +1,7 @@
 package ua.epam.spring.core;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.epam.spring.core.beans.Client;
 import ua.epam.spring.core.loggers.ConsoleEventLogger;
 
@@ -23,8 +25,11 @@ public class App {
 
     public static void main(String[] args){
 
-        App app = new App(new Client("1", "John Smith"), new ConsoleEventLogger());
-        app.logEvent("Some event from user 1");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+        App app = (App)ctx.getBean("app");
+
+        app.logEvent("Some event for 1");
+        app.logEvent("Some event for 2");
     }
 
 }

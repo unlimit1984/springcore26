@@ -5,6 +5,21 @@
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
+    <!--<bean id="client" class="ua.epam.spring.core.beans.Client">-->
+        <!--<constructor-arg value="1"/>-->
+        <!--<constructor-arg value="John Smith"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="client" class="ua.epam.spring.core.beans.Client">-->
+        <!--<constructor-arg index="1" type="java.lang.String" value="John Smith"/>-->
+        <!--<constructor-arg index="0" type="java.lang.String" value="1"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="client" class="ua.epam.spring.core.beans.Client">-->
+        <!--<constructor-arg name="fullName" value="John Smith"/>-->
+        <!--<constructor-arg name="id" value="1"/>-->
+    <!--</bean>    -->
+
     <bean id="client" class="ua.epam.spring.core.beans.Client">
         <constructor-arg value="1"/>
         <constructor-arg value="John Vik"/>
@@ -18,6 +33,12 @@
         <constructor-arg value="logs/log.txt"/>
         <constructor-arg value="10"/>
     </bean>
+
+    <!--<bean id="app" class="ua.epam.spring.core.App">-->
+        <!--<constructor-arg ref="client"/>-->
+        <!--<constructor-arg ref="eventLogger"/>-->
+    <!--</bean>-->
+
     <bean id="app" class="ua.epam.spring.core.App">
         <constructor-arg ref="cacheLogger"/>
         <constructor-arg ref="client"/>

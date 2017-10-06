@@ -25,14 +25,6 @@
         <constructor-arg value="John Vik"/>
     </bean>
 
-    <bean id="eventLogger" class="ua.epam.spring.core.loggers.ConsoleEventLogger"/>
-    <bean id="fileEventLogger" class="ua.epam.spring.core.loggers.FileEventLogger" init-method="init">
-        <constructor-arg value="logs/log.txt"/>
-    </bean>
-    <bean id="cacheLogger" class="ua.epam.spring.core.loggers.CacheFileEventLogger" destroy-method="cleanUp">
-        <constructor-arg value="logs/log.txt"/>
-        <constructor-arg value="10"/>
-    </bean>
 
     <!--<bean id="app" class="ua.epam.spring.core.App">-->
         <!--<constructor-arg ref="client"/>-->
@@ -50,6 +42,8 @@
         </constructor-arg>
         <constructor-arg ref="dateFormat"/>
     </bean>
+
+    <import resource="loggers.xml"/>
 
     <bean id="dateFormat" class="java.text.DateFormat"
           factory-method="getDateTimeInstance"/>

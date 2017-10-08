@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * Created by Vladimir on 08.10.2017.
  */
-public class CombinedEventLogger implements EventLogger{
+public class CombinedEventLogger implements EventLogger {
     private Collection<EventLogger> loggers = new ArrayList<>();
 
     public CombinedEventLogger(Collection<EventLogger> loggers) {
@@ -18,7 +18,7 @@ public class CombinedEventLogger implements EventLogger{
 
     @Override
     public void logEvent(Event event) {
-        for (EventLogger logger:loggers) {
+        for (EventLogger logger : loggers) {
             logger.logEvent(event);
         }
     }

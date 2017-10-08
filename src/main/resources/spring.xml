@@ -90,12 +90,19 @@
         <constructor-arg ref="loggerMap"/>
     </bean>
     -->
+    <!--
     <bean id="app" class="ua.epam.spring.core.App"
           c:client-ref="client"
           c:defaultLogger-ref="cacheLogger"
           c:loggers-ref="loggerMap">
     </bean>
+    -->
 
+    <bean id="app" class="ua.epam.spring.core.App"
+          c:client-ref="client"
+          c:defaultLogger="#{T(ua.epam.spring.core.Event).isDay() ? fileEventLogger : consoleEventLogger}"
+          c:loggers-ref="loggerMap">
+    </bean>
 
     <bean id="event" class="ua.epam.spring.core.Event" scope="prototype">
         <constructor-arg>

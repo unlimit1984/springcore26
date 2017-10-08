@@ -1,6 +1,9 @@
 package ua.epam.spring.core;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -36,6 +39,16 @@ public class Event {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public static boolean isDay() {
+        Date now = new Date();
+        SimpleDateFormat ldf = new SimpleDateFormat("HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime startTime = LocalTime.of(8, 0, 0);
+        LocalTime endTime = LocalTime.of(17, 0, 0);
+        LocalTime time = LocalTime.parse(ldf.format(now), formatter);
+        return time.compareTo(startTime) >= 0 && endTime.compareTo(time) >= 0;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class AppConfig {
 
     }
 
-    @Bean
+    @Bean(name = "app")
     public App app() {
         Map<EventType, EventLogger> loggers = new HashMap<>();
         loggers.put(EventType.ERROR, loggerConfig.combinedEventLogger());

@@ -1,8 +1,8 @@
 package ua.epam.spring.core;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.epam.spring.core.beans.Client;
-import ua.epam.spring.core.config.AppConfig;
 
 import java.util.Map;
 
@@ -11,8 +11,8 @@ import java.util.Map;
  */
 public class App {
 
-    //private static ConfigurableApplicationContext ctx;
-    private static AnnotationConfigApplicationContext ctx;
+    private static ConfigurableApplicationContext ctx;
+    //private static AnnotationConfigApplicationContext ctx;
 
     private Client client;
     private EventLogger defaultLogger;
@@ -40,10 +40,10 @@ public class App {
 
     public static void main(String[] args) {
 
-        //ctx = new ClassPathXmlApplicationContext("spring.xml");
-        ctx = new AnnotationConfigApplicationContext();
-        ctx.register(AppConfig.class);
-        ctx.refresh();
+        ctx = new ClassPathXmlApplicationContext("spring.xml");
+//        ctx = new AnnotationConfigApplicationContext();
+//        ctx.register(AppConfig.class);
+//        ctx.refresh();
 
         App app = (App) ctx.getBean("app");
 

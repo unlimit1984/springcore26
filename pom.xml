@@ -10,7 +10,8 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring.ver>4.3.11.RELEASE</spring.ver>
+        <!--<spring.ver>4.3.11.RELEASE</spring.ver>-->
+        <spring.ver>3.2.13.RELEASE</spring.ver>
     </properties>
 
     <build>

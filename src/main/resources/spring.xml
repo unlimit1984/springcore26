@@ -105,6 +105,7 @@
           c:client-ref="client"
           c:defaultLogger="#{T(ua.epam.spring.core.Event).isDay() ? fileEventLogger : consoleEventLogger}"
           c:loggers-ref="loggerMap">
+        <property name="statisticsAspect" ref="statisticsAspect"/>
     </bean>
 
     <bean id="event" class="ua.epam.spring.core.Event" scope="prototype">

@@ -2,6 +2,7 @@ package ua.epam.spring.core;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ua.epam.spring.core.aop.StatisticsAspect;
 import ua.epam.spring.core.beans.Client;
 
 import java.util.Map;
@@ -17,6 +18,12 @@ public class App {
     private Client client;
     private EventLogger defaultLogger;
     private Map<EventType, EventLogger> loggers;
+
+    private StatisticsAspect statisticsAspect;
+
+    public void setStatisticsAspect(StatisticsAspect statisticsAspect) {
+        this.statisticsAspect = statisticsAspect;
+    }
 
     public App() {
     }
@@ -41,6 +48,10 @@ public class App {
         logger.logEvent(event);
     }
 
+    public void printStatistics(){
+        statisticsAspect.printStatistics();
+    }
+
     public static void main(String[] args) {
 
         ctx = new ClassPathXmlApplicationContext("spring.xml");
@@ -54,6 +65,7 @@ public class App {
         app.logEvent("Some event for 2", null);
         app.logEvent("Some event for 3", EventType.INFO);
 
+        app.printStatistics();
 
         ctx.close();
     }

@@ -58,4 +58,8 @@ public class StatisticsAspect {
 //            otherLogger.logEvent(evt)
 //        }
     }
+
+    public void printStatistics() {
+        counter.forEach((aClass, integer) -> System.out.println(integer + ": " + aClass.getSimpleName()));
+    }
 }
